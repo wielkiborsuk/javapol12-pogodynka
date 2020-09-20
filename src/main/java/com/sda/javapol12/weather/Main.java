@@ -1,5 +1,6 @@
 package com.sda.javapol12.weather;
 
+import com.sda.javapol12.weather.forecastcache.WeatherForecastDao;
 import com.sda.javapol12.weather.forecastsource.openweather.OpenWeather;
 import org.apache.commons.cli.*;
 
@@ -19,6 +20,11 @@ public class Main {
         callWithArbitraryArguments(forecastSource);
 
         callWithPassedArguments(forecastSource, args);
+
+        WeatherForecastDao dao = new WeatherForecastDao();
+        dao.saveForecast(forecastSource.getForecast("Rzeszow"));
+
+        System.out.println(dao.listForecast());
     }
 
     private static void callWithPassedArguments(OpenWeather forecastSource, String[] args) {
