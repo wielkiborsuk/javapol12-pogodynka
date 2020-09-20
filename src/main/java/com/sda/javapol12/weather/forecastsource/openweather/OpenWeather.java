@@ -1,8 +1,10 @@
 package com.sda.javapol12.weather.forecastsource.openweather;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sda.javapol12.weather.forecastsource.openweather.model.*;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import com.sda.javapol12.weather.forecastsource.openweather.model.Coords;
+import com.sda.javapol12.weather.forecastsource.openweather.model.OpenWeatherDailyForecast;
+import com.sda.javapol12.weather.forecastsource.openweather.model.OpenWeatherResponse;
+import com.sda.javapol12.weather.forecastsource.openweather.model.OpenWeatherWeatherResponse;
 import org.apache.http.client.fluent.Request;
 
 import java.io.IOException;
