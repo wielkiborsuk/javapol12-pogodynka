@@ -17,9 +17,9 @@ public class Main {
         String key = Files.readAllLines(Paths.get("key.txt")).get(0).trim();
         OpenWeather forecastSource = new OpenWeather(key);
 
-        callWithArbitraryArguments(forecastSource);
+//        callWithArbitraryArguments(forecastSource);
 
-        callWithPassedArguments(forecastSource, args);
+//        callWithPassedArguments(forecastSource, args);
 
         WeatherForecastDao dao = new WeatherForecastDao();
         dao.saveForecast(forecastSource.getForecast("Rzeszow"));
