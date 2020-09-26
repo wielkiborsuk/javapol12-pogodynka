@@ -1,7 +1,7 @@
 package com.sda.javapol12.weather;
 
-import com.sda.javapol12.weather.forecastcache.WeatherForecastDao;
 import com.sda.javapol12.weather.forecastsource.openweather.OpenWeather;
+import com.sda.javapol12.weather.model.WeatherForecast;
 import org.apache.commons.cli.*;
 
 import java.io.IOException;
@@ -15,16 +15,19 @@ import java.util.Objects;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         String key = Files.readAllLines(Paths.get("key.txt")).get(0).trim();
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
         OpenWeather forecastSource = new OpenWeather(key);
 
 //        callWithArbitraryArguments(forecastSource);
 
 //        callWithPassedArguments(forecastSource, args);
 
-        WeatherForecastDao dao = new WeatherForecastDao();
-        dao.saveForecast(forecastSource.getForecast("Rzeszow"));
 
-        System.out.println(dao.listForecast());
+        WeatherForecast forecastForCity1 = forecastSource.getForecast("Rzeszow", tomorrow);
+        WeatherForecast forecastForCity2 = forecastSource.getForecast("Rzeszow", tomorrow);
+
+        System.out.println(forecastForCity1);
+        System.out.println(forecastForCity2);
     }
 
     private static void callWithPassedArguments(OpenWeather forecastSource, String[] args) {

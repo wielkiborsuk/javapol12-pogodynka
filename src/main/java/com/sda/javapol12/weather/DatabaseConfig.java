@@ -1,5 +1,6 @@
 package com.sda.javapol12.weather;
 
+import com.sda.javapol12.weather.model.CachedForecast;
 import com.sda.javapol12.weather.model.WeatherForecast;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -36,6 +37,7 @@ public class DatabaseConfig {
         configuration.setProperties(getSettings());
 
         configuration.addAnnotatedClass(WeatherForecast.class);
+        configuration.addAnnotatedClass(CachedForecast.class);
 
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();
